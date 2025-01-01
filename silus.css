@@ -1,0 +1,100 @@
+﻿/* Alapstílusok */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f9;
+}
+
+header {
+    background: linear-gradient(135deg, #4a90e2, #9013fe);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card h2 {
+    margin: 15px 10px 5px;
+    font-size: 18px;
+}
+
+.card p {
+    margin: 0 10px 10px;
+    color: #666;
+}
+
+.card .button {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    background: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.card .button:hover {
+    background: #9013fe;
+}
+
+/* Animált ikon */
+.card::after {
+    content: '\2605';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #f39c12;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+}
+
+.card:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Reszponzív beállítások */
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
